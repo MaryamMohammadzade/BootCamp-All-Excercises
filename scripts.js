@@ -1,19 +1,23 @@
-var result='Your input does not contain duplicate characters!';
-var input=document.querySelector("#myInput");
+var fetchData= async function(){
+    var url= 'https://jsonplaceholder.typicode.com/posts';
+    var response= await fetch(url, {method: 'GET'});
+    var data = await response.json();
+printPosts(data);
+}
 
-input.addEventListener("keypress", function(e){
-    if(e.key=='Enter'&& input.value.trim() !== ''){
-        var text = e.target.value;
-    for(let i=0; i< text.length; i++){
-        for(let j=i+1; j< text.length; j++){
-            if(text[i]==text[j]){
-                result='Your input contains duplicate characters!';
-            }
-        }
-    }
-    console.log(result);
-    alert(result);
-    result='Your input does not contain duplicate characters!';
-    }
-    
-})
+function printPosts(posts){
+    console.log(posts);
+    var listItems='';
+posts.forEach(post => {
+    listItems+=`
+     <li>Title-${post.id}
+       <ul>
+         <li>${post.title}</li>
+         <li>${post.body}</li>
+       </ul>
+     </li>
+    `
+});
+document.getElementById("ol-1").innerHTML=listItems;
+console.log(listItems);
+}

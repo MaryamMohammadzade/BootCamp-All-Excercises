@@ -3,13 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exc-14</title>
+    <title>Exc-15: API requests</title>
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    <div class="box">
-        <h1>My input</h1>
-        <input type="text" placeholder="Enter somthing..." id="myInput">
+    <div class="container">
+        <div class="head-box">
+            <h1>Posts list</h1>
+            <button type="submit" id="request-btn" onclick="fetchData()">Tap to request</button>
+        </div>
+        <div class="content">
+            <ol id="ol-1"></ol>
+        </div>
     </div>
     <script src="./scripts.js"></script>
 </body>
